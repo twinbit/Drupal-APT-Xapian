@@ -40,7 +40,7 @@ function apt_xapian_admin_console() {
   if ($res = $_SESSION['_apt_xapian_console']) {
     $form['result'] = array(
       '#prefix' => '<div class="results"> <h1> Results </h1>',
-      '#value' => implode('<br />', $res),
+      '#value' => theme('item_list', $res),
       '#suffix' => '<div>'
     );
     unset($_SESSION['_apt_xapian_console']);
