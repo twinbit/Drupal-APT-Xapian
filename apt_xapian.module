@@ -1,0 +1,37 @@
+<?php
+
+require_once "xapian.php";
+module_load_include('inc', 'apt_xapian', 'apt_xapian.lib');
+
+/**
+ *
+ * Implementation of hook_menu()
+ *
+ */
+function apt_xapian_menu() {
+  $items['admin/settings/apt-xapian'] = array(
+    'title' => 'APT Xapian settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('apt_xapian_admin_settings'),
+    'access arguments' => array('administer apt xapian'),
+    'file' => 'apt_xapian.admin.inc',
+  );
+
+  $items['admin/settings/apt-xapian/config'] = array(
+    'title' => 'Configuration',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'weight' => -10,
+  );
+
+  $items['admin/settings/apt-xapian/console'] = array(
+    'title' => 'APT Xapian Console',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('apt_xapian_admin_console'),
+    'access arguments' => array('administer apt xapian'),
+    'file' => 'apt_xapian.admin.inc',
+    'type' => MENU_LOCAL_TASK
+  );
+  return $items;
+}
+
+
