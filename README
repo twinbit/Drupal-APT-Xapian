@@ -1,0 +1,3 @@
+It requires php-xapian module in order to works.
+
+Debian/Ubuntu: apt-get install php5-xapian
